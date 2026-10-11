@@ -1,0 +1,145 @@
+/* pages/index/index.wxss —— 首页样式 */
+.page {
+  padding-bottom: 60rpx;
+}
+
+/* ===== 加载中 ===== */
+.loading-box {
+  display: flex;
+  justify-content: center;
+  padding: 200rpx 0;
+  color: #9CA3AF;
+}
+
+/* ===== 登录引导 ===== */
+.login-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 140rpx 60rpx 0;
+}
+.login-logo {
+  font-size: 120rpx;
+  margin-bottom: 24rpx;
+}
+.login-title {
+  font-size: 44rpx;
+  font-weight: 700;
+  margin-bottom: 20rpx;
+}
+.login-desc {
+  font-size: 28rpx;
+  color: #86909C;
+  text-align: center;
+  line-height: 1.8;
+  margin-bottom: 80rpx;
+}
+.login-btn {
+  width: 80%;
+  line-height: 92rpx;
+  border-radius: 48rpx;
+  background: #2F54EB;
+  color: #FFFFFF;
+  font-size: 32rpx;
+}
+.login-btn::after {
+  border: none;
+}
+.login-tip {
+  font-size: 22rpx;
+  color: #B4BCCC;
+  margin-top: 24rpx;
+}
+
+/* ===== 预警倒计时卡片 ===== */
+.hero {
+  margin: 24rpx;
+  padding: 48rpx 32rpx 40rpx;
+  border-radius: 28rpx;
+  color: #FFFFFF;
+  text-align: center;
+}
+/* 三种状态对应的渐变底色 */
+.hero--normal {
+  background: linear-gradient(135deg, #2F54EB, #5B7CFA);
+}
+.hero--pre_alert {
+  background: linear-gradient(135deg, #D46B08, #F5A623);
+}
+.hero--alerted {
+  background: linear-gradient(135deg, #C0392B, #E5484D);
+}
+.hero-status {
+  display: inline-block;
+  font-size: 24rpx;
+  padding: 8rpx 24rpx;
+  border-radius: 999rpx;
+  background: rgba(255, 255, 255, 0.22);
+  margin-bottom: 24rpx;
+}
+.hero-days {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 16rpx;
+}
+.hero-num {
+  font-size: 140rpx;
+  font-weight: 700;
+  line-height: 1;
+}
+.hero-unit {
+  font-size: 32rpx;
+  margin-left: 12rpx;
+}
+.hero-tip {
+  font-size: 26rpx;
+  opacity: 0.88;
+}
+
+/* ===== 签到按钮 ===== */
+.checkin-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 48rpx 0;
+}
+.checkin-btn {
+  width: 260rpx;
+  height: 260rpx;
+  border-radius: 50%;
+  background: linear-gradient(160deg, #2F54EB, #5B7CFA);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 16rpx 40rpx rgba(47, 84, 235, 0.35);
+}
+.checkin-btn--hover {
+  transform: scale(0.96);
+  opacity: 0.9;
+}
+.checkin-btn--loading {
+  opacity: 0.7;
+}
+.checkin-icon {
+  font-size: 64rpx;
+  font-weight: 700;
+}
+.checkin-text {
+  font-size: 30rpx;
+  margin-top: 8rpx;
+}
+.checkin-hint {
+  font-size: 24rpx;
+  color: #9CA3AF;
+  margin-top: 28rpx;
+}
+
+.foot-note {
+  text-align: center;
+  font-size: 22rpx;
+  color: #B4BCCC;
+  margin-top: 40rpx;
+}

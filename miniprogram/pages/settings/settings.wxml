@@ -1,0 +1,66 @@
+<!--pages/settings/settings.wxml —— 设置页：预警参数 + 联系人入口-->
+<view class="page">
+
+  <!-- ===== 预警参数表单 ===== -->
+  <view class="card">
+    <view class="card-title">预警设置</view>
+
+    <view class="form-item">
+      <view class="form-label">我的姓名 <text class="required">*</text></view>
+      <input
+        class="form-input"
+        value="{{selfName}}"
+        data-field="selfName"
+        bindinput="onInput"
+        placeholder="用于在预警邮件中向联系人说明你的身份"
+        maxlength="20"
+        placeholder-class="ph"
+      />
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">接收提醒的邮箱 <text class="required">*</text></view>
+      <input
+        class="form-input"
+        value="{{myEmail}}"
+        data-field="myEmail"
+        bindinput="onInput"
+        placeholder="用于接收预警确认提醒邮件"
+        maxlength="60"
+        placeholder-class="ph"
+      />
+      <view class="form-hint">即将触发预警时，提醒邮件会先发到这个邮箱，24 小时内签到即可取消预警</view>
+    </view>
+
+    <view class="form-item">
+      <view class="form-label">失联判定天数（1~365）</view>
+      <input
+        class="form-input"
+        type="number"
+        value="{{thresholdDays}}"
+        data-field="thresholdDays"
+        bindinput="onInput"
+        placeholder="默认 7 天"
+        placeholder-class="ph"
+      />
+      <view class="form-hint">连续多少天未签到即视为失联，默认 7 天</view>
+    </view>
+
+    <button class="btn btn-primary" loading="{{saving}}" bindtap="onSave">保存设置</button>
+    <button class="btn btn-ghost" bindtap="onTestEmail">发送测试邮件</button>
+  </view>
+
+  <!-- ===== 紧急联系人管理入口 ===== -->
+  <view class="card">
+    <view class="cell" bindtap="goContacts">
+      <view class="cell-label">紧急联系人管理</view>
+      <view class="cell-value">{{contactCount}} 位 ›</view>
+    </view>
+  </view>
+
+  <!-- ===== 关于与免责说明 ===== -->
+  <view class="about">
+    <view class="about-title">关于</view>
+    <view class="about-text">「失联安全签到」是个人学习用途的开源 Demo，仅用于技术交流，严禁商用。预警邮件由第三方邮箱服务自动发送，请通过官方渠道核实真实情况。</view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/contact-edit/contact-edit.wxss —— 联系人编辑页样式
+   表单与按钮样式复用 app.wxss 全局定义，此处仅做少量页面级补充 */
+.page {
+  padding-bottom: 60rpx;
+}

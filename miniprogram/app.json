@@ -1,0 +1,38 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/settings/settings",
+    "pages/contacts/contacts",
+    "pages/contact-edit/contact-edit"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2F54EB",
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "失联安全签到",
+    "backgroundColor": "#F5F6FA",
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#9CA3AF",
+    "selectedColor": "#2F54EB",
+    "backgroundColor": "#FFFFFF",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "签到",
+        "iconPath": "assets/tabbar/check.png",
+        "selectedIconPath": "assets/tabbar/check-active.png"
+      },
+      {
+        "pagePath": "pages/settings/settings",
+        "text": "设置",
+        "iconPath": "assets/tabbar/setting.png",
+        "selectedIconPath": "assets/tabbar/setting-active.png"
+      }
+    ]
+  },
+  "lazyCodeLoading": "requiredComponents",
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

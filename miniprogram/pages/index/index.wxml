@@ -1,0 +1,84 @@
+<!--pages/index/index.wxml —— 首页：一键签到 + 预警倒计时-->
+<view class="page">
+
+  <!-- ============ 加载中 ============ -->
+  <view wx:if="{{loading}}" class="loading-box">
+    <text>加载中...</text>
+  </view>
+
+  <!-- ============ 未登录：登录引导 ============ -->
+  <block wx:if="{{!loading && !isLogin}}">
+    <view class="login-hero">
+      <view class="login-logo">🛡️</view>
+      <view class="login-title">失联安全签到</view>
+      <view class="login-desc">你的"死亡开关"：每天一次签到报平安，若你突然失联，自动邮件通知你信任的人。</view>
+      <button class="login-btn" bindtap="onLogin">微信一键登录</button>
+      <view class="login-tip">登录通过云函数静默识别你的用户身份，无需弹窗授权</view>
+    </view>
+  </block>
+
+  <!-- ============ 已登录：签到主界面 ============ -->
+  <block wx:if="{{!loading && isLogin}}">
+
+    <!-- 预警倒计时卡片（随状态变色：蓝=正常 / 橙=待确认 / 红=已预警） -->
+    <view class="hero hero--{{alertStatus}}">
+      <view class="hero-status">{{statusText}}</view>
+      <view class="hero-days">
+        <text class="hero-num">{{daysRemaining}}</text>
+        <text class="hero-unit">天</text>
+      </view>
+      <view class="hero-tip">{{heroTip}}</view>
+    </view>
+
+    <!-- 签到按钮 -->
+    <view class="checkin-area">
+      <view
+        class="checkin-btn {{checkinLoading ? 'checkin-btn--loading' : ''}}"
+        hover-class="checkin-btn--hover"
+        bindtap="onCheckin"
+      >
+        <text class="checkin-icon">✓</text>
+        <text class="checkin-text">{{checkinLoading ? '签到中' : '立即签到'}}</text>
+      </view>
+      <view class="checkin-hint">每次签到都会刷新「最后签到时间」并重置预警倒计时</view>
+    </view>
+
+    <!-- 预警确认期横幅：24 小时内签到可取消对联系人的预警 -->
+    <view wx:if="{{alertStatus === 'pre_alert'}}" class="banner banner--warn">
+      ⚠️ 确认邮件已发送至 {{userInfo.myEmail || '（未绑定邮箱）'}}，
+      请在约 {{confirmHours}} 小时内完成签到以取消预警
+    </view>
+
+    <!-- 已预警横幅：联系人已被通知 -->
+    <view wx:elif="{{alertStatus === 'alerted'}}" class="banner banner--danger">
+      🚨 预警邮件已发送给你的紧急联系人，如你已安全，请立即签到复位
+    </view>
+
+    <!-- 未添加联系人提醒（没有联系人 = 预警无人接收） -->
+    <view
+      wx:elif="{{contactCount === 0}}"
+      class="banner banner--warn"
+      bindtap="goContacts"
+    >
+      ⚠️ 你还没有添加紧急联系人，预警将无人接收，点击前往添加 →
+    </view>
+
+    <!-- 关键信息卡片 -->
+    <view class="card">
+      <view class="cell">
+        <view class="cell-label">最后签到时间</view>
+        <view class="cell-value">{{lastCheckinText}}</view>
+      </view>
+      <view class="cell" bindtap="goSettings">
+        <view class="cell-label">失联判定天数</view>
+        <view class="cell-value">{{userInfo.thresholdDays}} 天 ›</view>
+      </view>
+      <view class="cell" bindtap="goContacts">
+        <view class="cell-label">紧急联系人</view>
+        <view class="cell-value">{{contactCount}} 位 ›</view>
+      </view>
+    </view>
+
+    <view class="foot-note">连续 {{userInfo.thresholdDays}} 天未签到将触发预警 · 每日凌晨 2 点自动检测</view>
+  </block>
+</view>

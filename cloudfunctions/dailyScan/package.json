@@ -1,0 +1,10 @@
+{
+  "name": "dailyScan",
+  "version": "1.0.0",
+  "description": "定时任务：每日凌晨2点扫描全部用户签到状态并发送预警邮件",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "^2.6.3",
+    "nodemailer": "^6.9.9"
+  }
+}

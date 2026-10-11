@@ -1,0 +1,9 @@
+{
+  "triggers": [
+    {
+      "name": "dailyScanTimer",
+      "type": "timer",
+      "config": "0 0 2 * * * *"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "name": "updateUser",
+  "version": "1.0.0",
+  "description": "保存用户设置：姓名、接收提醒邮箱、失联判定天数",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "^2.6.3"
+  }
+}

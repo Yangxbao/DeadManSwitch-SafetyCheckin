@@ -1,0 +1,19 @@
+/* pages/settings/settings.wxss —— 设置页样式（表单/按钮复用 app.wxss 全局样式） */
+.page {
+  padding-bottom: 60rpx;
+}
+
+/* ===== 关于与免责说明 ===== */
+.about {
+  margin: 40rpx 48rpx;
+}
+.about-title {
+  font-size: 26rpx;
+  color: #86909C;
+  margin-bottom: 12rpx;
+}
+.about-text {
+  font-size: 24rpx;
+  color: #B4BCCC;
+  line-height: 1.8;
+}
